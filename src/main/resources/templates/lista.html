@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ListaDeCartas</title>
+</head>
+<body>
+    <h1>Formulário de Cartas</h1>
+    <a href="/add">Adicionar nova carta</a>
+
+    <div th:each="carta : ${cartas}">
+        <h4 th:inline="text"> Nome: [[${carta.nome}]]<br>
+                              Edição [[${carta.edicao}]]<br>
+                              Idioma [[${carta.idioma}]]<br>
+                              Foil: [[${carta.foil}]]<br>
+                              Preço: [[${carta.preco}]]<br>
+        </h4>
+    </div>
+</body>
+</html>

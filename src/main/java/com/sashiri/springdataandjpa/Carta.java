@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 //Anotação Entity JPA serve para dizer que iremos criar uma table ana base de dados
 @Entity
@@ -14,10 +16,23 @@ public class Carta {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
 
+    @NotNull
+    @Size(min = 3)
     private String nome;
-    private int edicao;
+
+    @NotNull
+    @Size(min = 60)
+    private String edicao;
+
+    @NotNull
+    @Size(min = 40)
     private String idioma;
+
+    @NotNull
     private boolean foil;
+
+    @NotNull
+    @Size(min = 20)
     private double preco;
 
     public long getId() {
@@ -36,11 +51,11 @@ public class Carta {
         this.nome = nome;
     }
 
-    public int getEdicao() {
+    public String getEdicao() {
         return edicao;
     }
 
-    public void setEdicao(int edicao) {
+    public void setEdicao(String edicao) {
         this.edicao = edicao;
     }
 

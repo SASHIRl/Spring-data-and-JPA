@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot</title>
+</head>
+<body>
+    <h1>Formulário de Cartas</h1>
+
+    <form action="#" th:action="@{/process}" th:object="${carta}" method="post">
+        Nome: <input type="text" th:field="*{nome}">
+        <span th:if="${#fields.hasErrors('nome')}"
+              th:errors="*{nome}"></span><br>
+        Edição: <input type="text" th:field="*{edicao}">
+        <span th:if="${#fields.hasErrors('edicao')}"
+              th:errors="*{edicao}"></span><br>
+        Idioma: <input type="text" th:field="*{idioma}">
+        <span th:if="${#fields.hasErrors('idioma')}"
+              th:errors="*{idioma}"></span><br>
+        Foil: <input type="checkbox" th:field="*{foil}">
+        <span th:if="${#fields.hasErrors('foil')}"
+              th:errors="*{foil}"></span><br>
+        Preço: <input type="number" th:field="*{preco}">
+        <span th:if="${#fields.hasErrors('preco')}"
+              th:errors="*{preco}"></span><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
